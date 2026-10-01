@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    models:
+      room: 施設
+    attributes:
+      room:
+        name: 施設名
+        description: 施設詳細
+        price: 料金
+        address: 住所
+    errors:
+      models:
+        room:
+          attributes:
+            price:
+              greater_than_or_equal_to: 'は1円以上で入力してください'

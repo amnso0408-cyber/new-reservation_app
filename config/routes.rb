@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  namespace :users do
-    get "profile/show"
-    get "account/show"
-  end
   devise_for :users, controllers: {
     registrations: "users/registrations"
   }
+  get "rooms/own", to: "rooms#own"
+  resources :rooms
+
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 get "users/account", to: "users/account#show"
 get "users/profile", to: "users/profile#show"
