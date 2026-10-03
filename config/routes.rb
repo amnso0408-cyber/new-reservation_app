@@ -2,8 +2,12 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: "users/registrations"
   }
-  get "rooms/own", to: "rooms#own"
+  
   resources :rooms
+  get "rooms/own", to: "rooms#own"
+  
+  resources :reservations
+  post "reservations/confirm", to: "reservations#confirm"
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
