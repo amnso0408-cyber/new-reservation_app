@@ -1,0 +1,18 @@
+<header>
+  <h1>施設予約サイト</h1>
+
+  <% if user_signed_in? %>
+    <% if current_user.icon.attached? %>
+      <%= image_tag current_user.icon %>
+    <% else %>
+      <%= image_tag "https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png" %>
+  <% end %>
+
+    <%= current_user.name %>
+    <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
+
+  <% else %>
+    <%= link_to "ログイン", new_user_session_path %>
+    <%= link_to "新規登録", new_user_registration_path %>
+  <% end %>
+</header>

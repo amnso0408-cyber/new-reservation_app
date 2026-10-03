@@ -1,4 +1,13 @@
 <h2>施設詳細</h2>
+
+<% if @reservation.errors.any?%>
+  <ul>
+    <% @reservation.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
   <% if @room.image.attached? %>
     <%= image_tag @room.image %>
   <% else %>
@@ -17,6 +26,7 @@
   <%= form.label :guest_count, "人数" %>
   <%= form.number_field :guest_count %>
   <%= form.hidden_field :room_id, value: @room.id %>
+
   <%= form.submit "予約する" %>
   <% end %>
   <%= link_to "戻る", rooms_path %>

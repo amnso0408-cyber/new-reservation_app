@@ -24,7 +24,14 @@ end
   
   def confirm
   @reservation = Reservation.new(reservation_params)
+  @reservation.user = current_user
   @room = Room.find(@reservation.room_id)
+
+    if @reservation.valid?
+      #OK
+    else
+      render "rooms/show", status: :unprocessable_entity
+    end
   end
   
   def edit
