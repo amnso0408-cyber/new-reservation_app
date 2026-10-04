@@ -1,5 +1,4 @@
 class Users::ProfileController < ApplicationController
-
   def update
     if current_user.update(profile_params)
       redirect_to users_profile_path, notice: "プロフィールを更新しました。"

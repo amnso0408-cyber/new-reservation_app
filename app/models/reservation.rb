@@ -1,7 +1,7 @@
 class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :room
-  
+
   validate :checkin_at_cannot_be_in_the_past
   validate :checkout_at_must_be_after_checkin_at
   validate :guest_count_must_be_at_least_one

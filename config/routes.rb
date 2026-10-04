@@ -2,15 +2,15 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: "users/registrations"
   }
-  
+
   get "rooms/own", to: "rooms#own"
   resources :rooms
-  
+
   resources :reservations
   post "reservations/confirm", to: "reservations#confirm"
 
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+# Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 get "users/account", to: "users/account#show"
 get "users/profile", to: "users/profile#show"
 patch "users/profile", to: "users/profile#update"

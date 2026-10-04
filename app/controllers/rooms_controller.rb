@@ -41,7 +41,7 @@ class RoomsController < ApplicationController
 
     if @room.update(room_params)
       redirect_to @room, notice: "更新しました"
-   else
+    else
       render :edit, status: :unprocessable_entity
     end
   end
