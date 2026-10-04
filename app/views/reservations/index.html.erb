@@ -19,10 +19,7 @@
       <p>チェックアウト：<%= reservation.checkout_at.strftime("%Y/%m/%d") %></p>
       <p>人数：<%= reservation.guest_count %>人</p>
       <p>日数：<%= (reservation.checkout_at - reservation.checkin_at).to_i %>泊</p>
-      <p>
-        お支払い金額：
-        ¥<%= ((reservation.checkout_at - reservation.checkin_at).to_i * room.price * reservation.guest_count).to_i %>
-      </p>
+      <p>お支払い金額：¥<%= ((reservation.checkout_at - reservation.checkin_at).to_i * room.price * reservation.guest_count).to_i %></p>
     </div>
   </div>
 <% end %>

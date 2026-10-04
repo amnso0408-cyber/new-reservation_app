@@ -20,7 +20,7 @@ class RoomsController < ApplicationController
   end
 
   def new
-   @room = Room.new
+    @room = Room.new
   end
 
   def create
@@ -37,13 +37,13 @@ class RoomsController < ApplicationController
   end
 
   def update
-   @room = Room.find(params[:id])
+    @room = Room.find(params[:id])
 
-   if @room.update(room_params)
-    redirect_to @room, notice: "更新しました"
+    if @room.update(room_params)
+      redirect_to @room, notice: "更新しました"
    else
-    render :edit, status: :unprocessable_entity
-   end
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy

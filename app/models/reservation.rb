@@ -21,8 +21,8 @@ class Reservation < ApplicationRecord
   end
 
   def guest_count_must_be_at_least_one
-   if guest_count.present? && guest_count < 1
-    errors.add(:guest_count, "は１人以上で入力してください")
-   end
+    if guest_count.present? && guest_count < 1
+      errors.add(:guest_count, "は１人以上で入力してください")
+    end
   end
 end
