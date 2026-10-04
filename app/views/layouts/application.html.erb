@@ -19,7 +19,11 @@
   
   <body>
     <%= render "shared/header" %>
-    
-    <%= yield %>
+    <%= notice %>
+    <%= alert %>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

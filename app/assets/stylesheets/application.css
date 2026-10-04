@@ -13,3 +13,121 @@
  *= require_tree .
  *= require_self
  */
+body {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  background-color: rgb(5, 196, 238);
+  padding: 10px;
+}
+main {
+  padding: 0 30px;
+}
+
+h1 a {
+  color: black;
+  text-decoration: none;
+}
+
+.menu {
+  margin-left: auto;
+}
+.user-menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.user-menu {
+  position: relative;
+}
+
+.user-menu-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+}
+
+.user-menu-dropdown.active {
+  display: block;
+}
+
+.user-menu-dropdown a {
+  display: block;
+  background-color: rgb(246, 249, 249);
+  color: black;
+  text-decoration: none;
+  font-size: 13px;
+  width: 120px;
+  padding: 2px;
+}
+
+.menu img {
+  width: 50px;
+  height: 50px;
+}
+
+/* 登録一覧 */
+.room-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+/* 施設一覧 */
+.room-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.room-card {
+  min-width: 0;
+  text-align: center;
+}
+
+/* 施設詳細 */
+.room-detail {
+  display: flex;
+  gap: 40px;
+}
+
+.room-detail-image img {
+  width: 400px;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* 予約済み一覧 */
+.reservation-item {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.reservation-image img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.reservation-info {
+  flex: 1;
+}

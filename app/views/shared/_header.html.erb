@@ -1,16 +1,26 @@
 <header>
-  <h1>施設予約サイト</h1>
-
+  <h1><%= link_to "施設予約サイト", rooms_path %></h1>
+  <div class="menu">
   <% if user_signed_in? %>
     <% if current_user.icon.attached? %>
       <%= image_tag current_user.icon %>
     <% else %>
       <%= image_tag "https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png" %>
   <% end %>
-
-    <%= current_user.name %>
-    <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
-
+  <div class="user-menu">
+    <button type="button" class="user-menu-button">
+      <%= current_user.name %> ▼
+    </button>
+  
+    <div class="user-menu-dropdown">
+      <%= link_to "施設の新規登録", new_room_path %>
+      <%= link_to "予約済み一覧", reservations_path %>
+      <%= link_to "登録済み一覧", rooms_own_path %>
+      <%= link_to "アカウント設定", users_account_path %>
+      <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
+    </div>
+  </div>
+  </div>
   <% else %>
     <%= link_to "ログイン", new_user_session_path %>
     <%= link_to "新規登録", new_user_registration_path %>

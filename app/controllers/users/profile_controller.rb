@@ -1,13 +1,8 @@
 class Users::ProfileController < ApplicationController
-  def show
-  end
-
-   def edit
-  end
-
+ 
   def update
     if current_user.update(profile_params)
-      redirect_to users_profile_path
+      redirect_to users_profile_path, notice: "プロフィールを更新しました。"
     else
       render :edit
     end

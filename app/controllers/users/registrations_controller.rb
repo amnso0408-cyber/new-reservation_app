@@ -20,9 +20,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+
+protected
+
+def configure_account_update_params
+  devise_parameter_sanitizer.permit(:account_update, keys: [:name, :introduction, :icon])
+end
+
+def after_update_path_for(resource)
+  if params.dig(:user, :password).present?
+    flash[:notice] = "パスワードを変更しました。"
+  end
+
+  super
+end
 
   # DELETE /resource
   # def destroy

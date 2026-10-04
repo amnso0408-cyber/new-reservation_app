@@ -14,3 +14,10 @@ ja:
           attributes:
             price:
               greater_than_or_equal_to: 'は1円以上で入力してください'
+
+  devise:
+    registrations:
+      updated: 'アカウントを変更しました。'
+    sessions:
+      signed_in: 'ログインしました。'
+      signed_out: 'ログアウトしました。'

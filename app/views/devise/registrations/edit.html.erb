@@ -15,7 +15,7 @@
 
 <div>
 <%= form.label :password_confirmation, "確認用パスワード" %>
-<%= form.password_field :password_confimation %>
+<%= form.password_field :password_confirmation %>
 </div>
 <span>※変更する場合のみ</span>
 
@@ -24,7 +24,7 @@
 <%= form.password_field :current_password %>
 </div>
 
-<%= link_to "キャンセル", users_account_show_path %>
+<%= link_to "キャンセル", users_profile_path %>
 <%= form.submit "保存" %>
 
 <% end %>
