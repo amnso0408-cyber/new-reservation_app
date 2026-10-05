@@ -24,5 +24,5 @@ get "users/profile/edit", to: "users/profile#edit"
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
-  root "posts#index"
+  root "rooms#index"
 end

@@ -4,7 +4,7 @@
 
 <p>アイコン</p>
 <% if current_user.icon.attached? %>
-  <%= image_tag current_user.icon %>
+  <%= image_tag current_user.icon, width: 100, height: 100 %>
 <% else %>
   <%= image_tag "https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png" %>
 <% end %>
