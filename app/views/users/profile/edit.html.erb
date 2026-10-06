@@ -3,30 +3,30 @@
 <%= form_with model: current_user, url: users_profile_path, method: :patch do |form| %>
   <div class="profile-form">
     <div>
-    <%= form.label :icon, "アイコン画像" %>
+      <%= form.label :icon, "アイコン画像" %>
 
-    <% if current_user.icon.attached? %>
-      <%= image_tag current_user.icon, class: "profile-icon" %>
-    <% else %>
-      <%= image_tag "https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png", class: "profile-icon" %>
-    <% end %>
+      <% if current_user.icon.attached? %>
+        <%= image_tag current_user.icon, class: "profile-icon" %>
+      <% else %>
+        <%= image_tag "https://rails-02-sample.herokuapp.com/assets/common/default-avatar-7a6cbfd7993e89f24bfc888f4a035a83c6f1428b8bdc47eed9095f2799a40153.png", class: "profile-icon" %>
+      <% end %>
 
-    <%= form.file_field :icon %>
-  </div>
+      <%= form.file_field :icon %>
+    </div>
 
-  <div class="profile-name">
-    <%= form.label :name, "名前" %>
-    <%= form.text_field :name %>
-  </div>
+    <div class="profile-name">
+      <%= form.label :name, "名前" %>
+      <%= form.text_field :name %>
+    </div>
 
-  <div class="profile-introduction">
-    <%= form.label :introduction, "自己紹介" %>
-    <%= form.text_area :introduction %>
+    <div class="profile-introduction">
+      <%= form.label :introduction, "自己紹介" %>
+      <%= form.text_area :introduction %>
+    </div>
+
+    <div class="profile-actions">
+      <%= link_to "キャンセル", users_profile_path %>
+      <%= form.submit "保存" %>
+    </div>
   </div>
-  
-  <div class="profile-actions">
-    <%= link_to "キャンセル", users_profile_path %>
-    <%= form.submit "保存" %>
-  </div>
-</div>
 <% end %>

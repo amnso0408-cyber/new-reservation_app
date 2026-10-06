@@ -21,9 +21,7 @@ class ReservationsController < ApplicationController
     @reservation.user = current_user
     @room = Room.find(@reservation.room_id)
 
-    if @reservation.valid?
-      # OK
-    else
+    if @reservation.invalid?
       render "rooms/show", status: :unprocessable_entity
     end
   end
