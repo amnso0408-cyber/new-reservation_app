@@ -1,0 +1,25 @@
+<h2>予約済み一覧</h2>
+
+<% @reservations.each do |reservation| %>
+  <% room = reservation.room %>
+
+  <div class="reservation-item">
+    <div class="reservation-image">
+      <% if room.image.attached? %>
+        <%= image_tag room.image %>
+      <% else %>
+        <%= image_tag "https://rails-02-sample.herokuapp.com/assets/room/default-image-4e0ac6b8d01335b5b22fe6586af13644ae51dddb6aeabf35b9174e80f13cd09d.png" %>
+      <% end %>
+    </div>
+
+    <div class="reservation-info">
+      <p><%= room.name %></p>
+      <p><%= room.description %></p>
+      <p>チェックイン：<%= reservation.checkin_at.strftime("%Y/%m/%d") %></p>
+      <p>チェックアウト：<%= reservation.checkout_at.strftime("%Y/%m/%d") %></p>
+      <p>人数：<%= reservation.guest_count %>人</p>
+      <p>日数：<%= (reservation.checkout_at - reservation.checkin_at).to_i %>泊</p>
+      <p>お支払い金額：¥<%= ((reservation.checkout_at - reservation.checkin_at).to_i * room.price * reservation.guest_count).to_i %></p>
+    </div>
+  </div>
+<% end %>

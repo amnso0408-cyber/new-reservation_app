@@ -1,6 +1,20 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users, controllers: {
+    registrations: "users/registrations"
+  }
 
+  get "rooms/own", to: "rooms#own"
+  resources :rooms
+
+  resources :reservations
+  post "reservations/confirm", to: "reservations#confirm"
+
+
+# Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+get "users/account", to: "users/account#show"
+get "users/profile", to: "users/profile#show"
+patch "users/profile", to: "users/profile#update"
+get "users/profile/edit", to: "users/profile#edit"
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
@@ -10,5 +24,5 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "rooms#index"
 end
